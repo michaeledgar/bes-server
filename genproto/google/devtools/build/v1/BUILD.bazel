@@ -1,0 +1,26 @@
+load("@rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "build",
+    srcs = [
+        "build_events.pb.go",
+        "build_status.pb.go",
+        "publish_build_event.pb.go",
+        "publish_build_event_grpc.pb.go",
+    ],
+    importpath = "github.com/michaeledgar/bes-server/genproto/google/devtools/build/v1",
+    visibility = ["//visibility:public"],
+    deps = [
+        "@org_golang_google_genproto_googleapis_api//annotations",
+        "@org_golang_google_grpc//:grpc",
+        "@org_golang_google_grpc//codes",
+        "@org_golang_google_grpc//status",
+        "@org_golang_google_protobuf//reflect/protoreflect",
+        "@org_golang_google_protobuf//runtime/protoimpl",
+        "@org_golang_google_protobuf//types/known/anypb",
+        "@org_golang_google_protobuf//types/known/durationpb",
+        "@org_golang_google_protobuf//types/known/emptypb",
+        "@org_golang_google_protobuf//types/known/timestamppb",
+        "@org_golang_google_protobuf//types/known/wrapperspb",
+    ],
+)
