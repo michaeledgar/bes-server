@@ -1,0 +1,20 @@
+load("@rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "buildeventstream",
+    srcs = ["build_event_stream.pb.go"],
+    importpath = "github.com/michaeledgar/bes-server/genproto/buildeventstream",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//genproto/buildeventstream/action_cache",
+        "//genproto/buildeventstream/command_line",
+        "//genproto/buildeventstream/failure_details",
+        "//genproto/buildeventstream/invocation_policy",
+        "//genproto/buildeventstream/package_load_metrics",
+        "@org_golang_google_protobuf//reflect/protoreflect",
+        "@org_golang_google_protobuf//runtime/protoimpl",
+        "@org_golang_google_protobuf//types/known/anypb",
+        "@org_golang_google_protobuf//types/known/durationpb",
+        "@org_golang_google_protobuf//types/known/timestamppb",
+    ],
+)

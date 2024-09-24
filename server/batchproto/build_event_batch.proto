@@ -1,0 +1,12 @@
+syntax = "proto3";
+
+package bes_server.server;
+
+option go_package = "github.com/michaeledgar/bes-server/server/batchproto";
+
+// FIXME: Wire this up properly.
+import "google/devtools/build/v1/publish_build_event.proto";
+
+message BuildEventBatch {
+    repeated google.devtools.build.v1.OrderedBuildEvent event = 1;
+}

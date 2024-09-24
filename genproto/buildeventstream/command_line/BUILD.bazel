@@ -1,0 +1,13 @@
+load("@rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "command_line",
+    srcs = ["command_line.pb.go"],
+    importpath = "github.com/michaeledgar/bes-server/genproto/buildeventstream/command_line",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//genproto/buildeventstream/option_filters",
+        "@org_golang_google_protobuf//reflect/protoreflect",
+        "@org_golang_google_protobuf//runtime/protoimpl",
+    ],
+)

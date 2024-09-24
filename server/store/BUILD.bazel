@@ -1,0 +1,23 @@
+load("@rules_go//go:def.bzl", "go_library", "go_test")
+
+go_library(
+    name = "store",
+    srcs = [
+        "interface.go",
+        "memory.go",
+    ],
+    importpath = "github.com/michaeledgar/bes-server/server/store",
+    visibility = ["//visibility:public"],
+    deps = ["//genproto/google/devtools/build/v1:build"],
+)
+
+go_test(
+    name = "store_test",
+    srcs = ["memory_test.go"],
+    embed = [":store"],
+    deps = [
+        "//genproto/google/devtools/build/v1:build",
+        "//testproto",
+        "@org_golang_google_protobuf//types/known/anypb",
+    ],
+)

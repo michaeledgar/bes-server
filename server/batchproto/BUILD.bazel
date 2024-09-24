@@ -1,0 +1,13 @@
+load("@rules_go//go:def.bzl", "go_library")
+
+go_library(
+    name = "batchproto",
+    srcs = ["build_event_batch.pb.go"],
+    importpath = "github.com/michaeledgar/bes-server/server/batchproto",
+    visibility = ["//visibility:public"],
+    deps = [
+        "//genproto/google/devtools/build/v1:build",
+        "@org_golang_google_protobuf//reflect/protoreflect",
+        "@org_golang_google_protobuf//runtime/protoimpl",
+    ],
+)

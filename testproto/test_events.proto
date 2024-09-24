@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+package bes_server.testing;
+
+option go_package = "github.com/michaeledgar/bes-server/testproto";
+
+message TestProgressEvent {
+  string stdout = 1;
+  string stderr = 2;
+}
